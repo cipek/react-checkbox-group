@@ -57,7 +57,9 @@ var Checkbox = exports.Checkbox = function (_Component) {
         optional.onChange = onChange.bind(null, this.props.value);
       }
 
-      return _react2.default.createElement('input', _extends({}, rest, {
+      var style = { display: 'inline-block', float: 'left'};
+
+      return _react2.default.createElement('input', _extends({ style: style }, rest, {
         type: 'checkbox',
         name: name,
         disabled: this.props.disabled
@@ -136,9 +138,15 @@ var CheckboxGroup = exports.CheckboxGroup = function (_Component2) {
           checkboxDepth = _props2$checkboxDepth === undefined ? 1 : _props2$checkboxDepth,
           rest = _objectWithoutProperties(_props2, ['Component', 'name', 'value', 'onChange', 'children', 'checkboxDepth']);
 
+
+          var marginbottom = _props2.marginbottom;
+          var style = { display: 'inline-block', width: '100%', marginBottom: marginbottom ? marginbottom : 0};
+
       return _react2.default.createElement(
-        Component,
-        rest,
+        // Component,
+        // rest,
+          'div',
+          _extends({ style: style }, rest),
         this._prepareBoxes(children, checkboxDepth)
       );
     }
